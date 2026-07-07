@@ -22,8 +22,8 @@ load_progress :: proc() {
 		return
 	}
 
-	data, ok := os.read_entire_file(SAVE_FILE)
-	if !ok {
+	data, os_err := os.read_entire_file(SAVE_FILE, context.allocator)
+	if os_err != nil {
 		return
 	}
 
@@ -39,5 +39,5 @@ save_progress :: proc() {
 		fmt.eprintln("Failed to marshal progress:", err)
 		return
 	}
-	os.write_entire_file(SAVE_FILE, data)
+	_ = os.write_entire_file(SAVE_FILE, data)
 }

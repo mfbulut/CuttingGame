@@ -5,7 +5,7 @@ import "core:math/linalg"
 import "core:math/ease"
 import rl "vendor:raylib"
 
-FONT_DATA :: #load("AvenirNextLTPro-Regular.otf")
+FONT_DATA :: #load("assets/Inter.ttf")
 
 Cut :: struct {
 	start: rl.Vector2,
